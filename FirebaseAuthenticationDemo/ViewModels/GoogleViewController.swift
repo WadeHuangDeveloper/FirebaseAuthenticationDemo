@@ -20,7 +20,7 @@ class GoogleViewController: UIViewController {
         }
     }
     
-    func signIn() async {
+    private func signIn() async {
         guard let app = FirebaseApp.app(),
               let clientID = app.options.clientID else {
             print(AuthenticationError.ClientIDError)

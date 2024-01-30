@@ -38,7 +38,7 @@ class PhoneVerificationViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    func verifyPhoneNumber() async {
+    private func verifyPhoneNumber() async {
         do {
             // Get phone number from user
             guard let phoneNumber = phoneNumberTextField.text,

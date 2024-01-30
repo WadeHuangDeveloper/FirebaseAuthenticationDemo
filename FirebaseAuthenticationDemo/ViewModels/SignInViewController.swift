@@ -7,12 +7,12 @@
 
 import UIKit
 import GoogleSignIn
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
 
     @IBOutlet weak var phoneNumberButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
-    @IBOutlet weak var linkButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
     
@@ -20,6 +20,16 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
 
         initializeUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let user = Auth.auth().currentUser {
+            // Move to MemberViewController
+            let controller = storyboard?.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     func initializeUI() {
@@ -33,15 +43,10 @@ class SignInViewController: UIViewController {
         emailButton.layer.borderWidth = 1
         emailButton.layer.borderColor = UIColor(cgColor: CGColor(red: 246/255, green: 196/255, blue: 68/255, alpha: 1)).cgColor
         
-        linkButton.clipsToBounds = true
-        linkButton.layer.cornerRadius = 10
-        linkButton.layer.borderWidth = 1
-        linkButton.layer.borderColor = UIColor(cgColor: CGColor(red: 225/255, green: 81/255, blue: 65/255, alpha: 1)).cgColor
-        
         googleButton.clipsToBounds = true
         googleButton.layer.cornerRadius = 10
         googleButton.layer.borderWidth = 1
-        googleButton.layer.borderColor = UIColor(cgColor: CGColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 1)).cgColor
+        googleButton.layer.borderColor = UIColor(cgColor: CGColor(red: 225/255, green: 81/255, blue: 65/255, alpha: 1)).cgColor
         
         facebookButton.clipsToBounds = true
         facebookButton.layer.cornerRadius = 10

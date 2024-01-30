@@ -14,11 +14,11 @@ class FacebookViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         logIn()
     }
     
-    func logIn() {
+    private func logIn() {
         // Sign in with Facebook
         let manager = LoginManager()
         manager.logIn(permissions: [Permission.publicProfile.name, Permission.email.name], from: self) { (result: LoginManagerLoginResult?, error: Error?) in
@@ -46,7 +46,7 @@ class FacebookViewController: UIViewController {
         }
     }
     
-    func signIn(with accessToken: AccessToken) async {
+    private func signIn(with accessToken: AccessToken) async {
         do {
             // Create a credential object
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
@@ -54,7 +54,7 @@ class FacebookViewController: UIViewController {
             // Sign in with Firebase
             let result = try await Auth.auth().signIn(with: credential)
             
-            // Move to member view controller
+            // Move to MemberViewController
             let controller = storyboard?.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
             self.navigationController?.pushViewController(controller, animated: true)
             

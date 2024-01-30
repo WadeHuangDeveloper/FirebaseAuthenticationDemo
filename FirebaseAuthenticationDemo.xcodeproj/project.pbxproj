@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		333DB7692B5E64ED00B31685 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333DB7682B5E64ED00B31685 /* SettingsViewController.swift */; };
 		33D6245C2B450652001EF767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6245B2B450652001EF767 /* AppDelegate.swift */; };
 		33D6245E2B450652001EF767 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6245D2B450652001EF767 /* SceneDelegate.swift */; };
 		33D624632B450652001EF767 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D624612B450652001EF767 /* Main.storyboard */; };
@@ -16,7 +17,6 @@
 		33D624742B45067E001EF767 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D624702B45067E001EF767 /* PhoneVerificationViewController.swift */; };
 		33D624752B45067E001EF767 /* GoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D624712B45067E001EF767 /* GoogleViewController.swift */; };
 		33D624762B45067E001EF767 /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D624722B45067E001EF767 /* AuthenticationError.swift */; };
-		33D6247A2B450689001EF767 /* EmailLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D624782B450689001EF767 /* EmailLinkViewController.swift */; };
 		33D6247B2B450689001EF767 /* EmailPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D624792B450689001EF767 /* EmailPasswordViewController.swift */; };
 		33D624812B450694001EF767 /* PhoneSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6247C2B450694001EF767 /* PhoneSignInViewController.swift */; };
 		33D624822B450694001EF767 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6247D2B450694001EF767 /* SignInViewController.swift */; };
@@ -27,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		333DB7682B5E64ED00B31685 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		33D624582B450652001EF767 /* FirebaseAuthenticationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseAuthenticationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D6245B2B450652001EF767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33D6245D2B450652001EF767 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +39,6 @@
 		33D624702B45067E001EF767 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
 		33D624712B45067E001EF767 /* GoogleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleViewController.swift; sourceTree = "<group>"; };
 		33D624722B45067E001EF767 /* AuthenticationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
-		33D624782B450689001EF767 /* EmailLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailLinkViewController.swift; sourceTree = "<group>"; };
 		33D624792B450689001EF767 /* EmailPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailPasswordViewController.swift; sourceTree = "<group>"; };
 		33D6247C2B450694001EF767 /* PhoneSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneSignInViewController.swift; sourceTree = "<group>"; };
 		33D6247D2B450694001EF767 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -132,9 +132,9 @@
 				33D624712B45067E001EF767 /* GoogleViewController.swift */,
 				33D624702B45067E001EF767 /* PhoneVerificationViewController.swift */,
 				33D6247C2B450694001EF767 /* PhoneSignInViewController.swift */,
-				33D624782B450689001EF767 /* EmailLinkViewController.swift */,
 				33D624792B450689001EF767 /* EmailPasswordViewController.swift */,
 				33D624802B450694001EF767 /* MemberViewController.swift */,
+				333DB7682B5E64ED00B31685 /* SettingsViewController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -271,10 +271,10 @@
 				33D6247B2B450689001EF767 /* EmailPasswordViewController.swift in Sources */,
 				33D624742B45067E001EF767 /* PhoneVerificationViewController.swift in Sources */,
 				33D6245C2B450652001EF767 /* AppDelegate.swift in Sources */,
-				33D6247A2B450689001EF767 /* EmailLinkViewController.swift in Sources */,
 				33D6245E2B450652001EF767 /* SceneDelegate.swift in Sources */,
 				33D624752B45067E001EF767 /* GoogleViewController.swift in Sources */,
 				33D624812B450694001EF767 /* PhoneSignInViewController.swift in Sources */,
+				333DB7692B5E64ED00B31685 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

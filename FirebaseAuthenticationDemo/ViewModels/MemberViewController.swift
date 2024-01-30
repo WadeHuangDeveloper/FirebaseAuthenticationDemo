@@ -10,10 +10,8 @@ import FirebaseAuth
 import FacebookCore
 
 class MemberViewController: UIViewController {
-
-    var user: User?
     
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profilePictureView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -23,33 +21,51 @@ class MemberViewController: UIViewController {
         super.viewDidLoad()
 
         initializeUI()
+        initializeAuth()
     }
     
-    @IBAction func signOut(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            self.navigationController?.popToRootViewController(animated: true)
-        } catch {
-            print(error.localizedDescription)
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        initializeAuth()
     }
     
-    func initializeUI() {
+    private func initializeUI() {
+        let rightBarButtnItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settings))
+        self.navigationItem.rightBarButtonItem = rightBarButtnItem
+        
         nameTextField.isEnabled = false
         emailTextField.isEnabled = false
         phoneNumberTextField.isEnabled = false
-        
-        if let user = Auth.auth().currentUser {
-            nameTextField.text = user.displayName
-            phoneNumberTextField.text = user.phoneNumber
-            emailTextField.text = user.email
-            emailLabel.text = user.isEmailVerified ? "Email ✅" : "Email"
-        } else {
-            nameTextField.text = ""
-            phoneNumberTextField.text = ""
-            emailTextField.text = ""
-            emailLabel.text = "Email"
+        nameTextField.text = ""
+        phoneNumberTextField.text = ""
+        emailTextField.text = ""
+        emailLabel.text = "Email"
+    }
+    
+    @objc
+    private func settings() {
+        // Move to SettingsViewController
+        let controller = storyboard?.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    private func initializeAuth() {
+        guard let currentUser = Auth.auth().currentUser else {
+            initializeUI()
+            return
         }
+        
+        if let facebookUser = AccessToken.current {
+            let pictureView = FBProfilePictureView(frame: CGRect(x: 0, y: 0, width: profilePictureView.frame.width, height: profilePictureView.frame.height))
+            pictureView.profileID = facebookUser.userID
+            profilePictureView.addSubview(pictureView)
+        }
+        
+        nameTextField.text = currentUser.displayName
+        phoneNumberTextField.text = currentUser.phoneNumber
+        emailTextField.text = currentUser.email
+        emailLabel.text = currentUser.isEmailVerified ? "Email ✅" : "Email"
     }
     
     /*

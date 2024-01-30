@@ -37,7 +37,7 @@ class PhoneSignInViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    func signIn() async {
+    private func signIn() async {
         do {
             // Get verificationID from user defaults
             guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") else {
